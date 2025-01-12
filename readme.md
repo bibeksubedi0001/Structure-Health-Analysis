@@ -1,64 +1,101 @@
-Phase 1: Backend - Data Handling (Conversations 1-5)
-Question 1: "How do I load and display the sensor data from the CSV file using Python?"
+# **Structural Health Sensor Analysis and Visualization**
 
-Goal: Load data from data.csv and display a summary (e.g., first 5 rows).
-Question 2: "How do I write a function to save processed data back to the CSV file?"
+## **Overview**
+This project is designed to analyze and visualize sensor data for monitoring the health of structures like bridges, towers, and buildings. It provides various features, including anomaly detection, sensor comparisons, and data visualization.
 
-Goal: Save filtered or updated data back to data.csv.
-Question 3: "How do I add a function to validate the sensor data?"
+The project is implemented in Python using **Pandas** for data manipulation, **Matplotlib** for visualizations, and file operations for dynamic data handling.
 
-Goal: Ensure all rows in data.csv have valid fields (e.g., no missing or invalid values).
-Question 4: "How can I filter the sensor data by type or location?"
 
-Goal: Write functions to extract data based on sensor_type or location.
-Question 5: "How do I append new sensor readings to the CSV file?"
+## **Technologies Used**
+- **Python**: Core programming language.
+- **Pandas**: For data manipulation and processing.
+- **Matplotlib**: For creating line graphs, comparison plots, and anomaly visualizations.
+- **OS Module**: For file and folder operations.
 
-Goal: Add a new sensor reading programmatically to data.csv.
-Phase 2: Backend - Data Processing (Conversations 6-10)
-Question 6: "How do I calculate basic statistics for sensor readings?"
+---
 
-Goal: Compute the mean, max, and min values for each sensor_type.
-Question 7: "How do I detect anomalies in sensor data?"
+## **Folder Structure**
+```
+Structural_Health_Sensor_Analysis/
+│
+├── backend/
+│   ├── data.csv                  # Sensor data file
+│   ├── data_operation.py   # Python script for data analysis and visualization
+│
+├── reports/
+│   ├── visualizations/           # Folder for saved graphs
+│
+├── README.md                     # Project documentation
+```
 
-Goal: Define thresholds for anomalies (e.g., strain > 50) and identify them in the data.
-Question 8: "How can I group and summarize data by time intervals?"
+---
 
-Goal: Group sensor readings by hours or days and calculate summary statistics.
-Question 9: "How do I generate summaries by location or sensor type?"
+## **Setup Instructions**
+1. Clone the repository:
+   ```bash
+   git clone "https://github.com/bibeksubedi0001/Structure-Health-Analysis"
+   cd Structural_Health_Sensor_Analysis
+   ```
 
-Goal: Summarize the total number of readings and averages by location or sensor_type.
-Question 10: "How do I export processed data to a new CSV file?"
+2. Install dependencies:
+   ```bash
+   pip install pandas matplotlib
+   ```
 
-Goal: Save processed data (e.g., anomalies or summaries) to a separate CSV file.
-Phase 3: Frontend - Visualization (Conversations 11-15)
-Question 11: "How do I create a line graph of sensor readings over time using Matplotlib?"
+3. Place the `data.csv` file in the `backend/` folder. This file should contain the sensor data with the following columns:
+   - `sensor_id`
+   - `sensor_type`
+   - `location`
+   - `value`
+   - `timestamp`
 
-Goal: Plot a graph for a specific sensor_id to show readings over time.
-Question 12: "How do I compare average sensor readings by type or location in a bar chart?"
+4. Run the script:
+   ```bash
+   python backend/visualization_script.py
+   ```
 
-Goal: Create bar charts comparing averages for sensor_type or location.
-Question 13: "How do I highlight anomalies on the graph?"
+---
 
-Goal: Mark anomalies on the graph with a different color or symbol.
-Question 14: "How do I save generated graphs as images?"
+## **How to Use**
+### **1. Load Sensor Data**
+The script will load and preview the data from `data.csv`.
 
-Goal: Save Matplotlib plots as .png or .jpg files in the reports/visualizations folder.
-Question 15: "How do I display summaries and graphs in an HTML file?"
+### **2. Generate Visualizations**
+- **Line Graphs**: Individual graphs for each sensor, saved in the `reports/visualizations/` folder.
+- **Sensor Comparisons**: A single graph comparing all sensors.
+- **Anomalies**: Highlighted graphs for each sensor, showing values exceeding predefined thresholds.
 
-Goal: Use index.html to display graphs and key summaries in a simple webpage.
-Phase 4: Advanced Features (Conversations 16-20)
-Question 16: "How do I simulate new sensor data and update the CSV file dynamically?"
+### **3. Adjust Thresholds**
+Modify the `thresholds` dictionary in the script to change anomaly detection limits:
+```python
+thresholds = {
+    "strain": 50,
+    "temperature": 100,
+    "vibration": 30
+}
+```
 
-Goal: Write a script to simulate and add new data to data.csv.
-Question 17: "How do I create a command-line menu for filtering, summarizing, and visualizing data?"
+---
 
-Goal: Build a CLI to allow users to interact with the project.
-Question 18: "How can I automate anomaly notifications in real-time?"
+## **Outputs**
+- **Line Graphs**: `line_graph_<sensor_id>.png`
+- **Comparison Graph**: `comparison_all_sensors.png`
+- **Anomaly Graphs**: `anomalies_<sensor_id>.png`
 
-Goal: Print warnings in the terminal whenever anomalies are detected.
-Question 19: "How do I refactor the code for better organization?"
+All outputs are saved in the `reports/visualizations/` folder.
 
-Goal: Separate logic into reusable Python modules for clarity.
-Question 20: "How do I document and test the project?"
+---
 
-Goal: Write a simple README and perform a final test of all features.
+## **Example Data Format**
+Here’s an example of the `data.csv` file format:
+```csv
+sensor_id,sensor_type,location,value,timestamp
+sensor_1,strain,Bridge A,45.5,2025-01-12T12:00:00
+sensor_2,vibration,Tower C,30.2,2025-01-12T12:01:00
+sensor_3,temperature,Building B,102.3,2025-01-12T12:02:00
+```
+**Author**
+
+Name: Bibek Subedi
+
+Email: 078bce035.bibek@pcampus.edu.np
