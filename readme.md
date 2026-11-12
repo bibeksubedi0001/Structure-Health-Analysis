@@ -69,12 +69,12 @@ Produced by `python run_analysis.py`, which takes about one minute; all tables a
 From one record the five frequencies are within 0.44 % of the model values, the damping ratios
 are between 1.9 and 2.7 % (true value 2 %), and the MAC of every mode shape is at least 0.997.
 
-| | Mode 1 | Mode 2 | Mode 3 | Mode 4 | Mode 5 |
-|---|---|---|---|---|---|
-| Model frequency (Hz) | 1.812 | 5.289 | 8.338 | 10.711 | 12.217 |
-| Identified from one record (Hz) | 1.804 | 5.283 | 8.329 | 10.711 | 12.212 |
+|                                               | Mode 1 | Mode 2 | Mode 3 | Mode 4 | Mode 5 |
+| --------------------------------------------- | ------ | ------ | ------ | ------ | ------ |
+| Model frequency (Hz)                          | 1.812  | 5.289  | 8.338  | 10.711 | 12.217 |
+| Identified from one record (Hz)               | 1.804  | 5.283  | 8.329  | 10.711 | 12.212 |
 | Scatter over 60 records, constant temperature | 0.22 % | 0.15 % | 0.11 % | 0.11 % | 0.10 % |
-| Scatter over 60 records, varying temperature | 0.51 % | 0.49 % | 0.48 % | 0.45 % | 0.47 % |
+| Scatter over 60 records, varying temperature  | 0.51 % | 0.49 % | 0.48 % | 0.45 % | 0.47 % |
 
 A 10 % stiffness loss in one storey lowers a frequency by 0.14 to 1.95 %, depending on the
 storey and the mode ([all values](reports/visualizations/frequency_changes.png)). The scatter
@@ -89,12 +89,12 @@ On the 200 further healthy records both detectors give 0.5 % false alarms (1 % i
 of the 40 records flagged, as the range over the five damaged storeys:
 
 | Stiffness loss | Five frequencies | First frequency only |
-|---|---|---|
-| 2 % | 8 to 28 % | 0 % |
-| 3 % | 15 to 72 % | 0 to 2 % |
-| 5 % | 85 to 100 % | 0 to 20 % |
-| 10 % | 100 % | 0 to 78 % |
-| 20 % | 100 % | 0 to 100 % |
+| -------------- | ---------------- | -------------------- |
+| 2 %            | 8 to 28 %        | 0 %                  |
+| 3 %            | 15 to 72 %       | 0 to 2 %             |
+| 5 %            | 85 to 100 %      | 0 to 20 %            |
+| 10 %           | 100 %            | 0 to 78 %            |
+| 20 %           | 100 %            | 0 to 100 %           |
 
 - With five frequencies a 5 % loss is flagged in at least 85 % of the records and a 10 % loss in
   all of them, in every storey. A change of temperature moves all frequencies together, and the
@@ -116,12 +116,12 @@ Share of single records in which the largest estimated loss is in the damaged st
 From the mean frequencies of the 40 records of a case:
 
 | True loss | Estimated loss in the damaged storey | Largest estimate in another storey |
-|---|---|---|
-| 2 % | 1.7 to 2.2 % | 0.6 % |
-| 3 % | 2.7 to 3.0 % | 0.3 % |
-| 5 % | 4.5 to 5.2 % | 0.6 % |
-| 10 % | 9.7 to 10.8 % | 0.5 % |
-| 20 % | 19.0 to 21.8 % | 2.8 % |
+| --------- | ------------------------------------ | ---------------------------------- |
+| 2 %       | 1.7 to 2.2 %                         | 0.6 %                              |
+| 3 %       | 2.7 to 3.0 %                         | 0.3 %                              |
+| 5 %       | 4.5 to 5.2 %                         | 0.6 %                              |
+| 10 %      | 9.7 to 10.8 %                        | 0.5 %                              |
+| 20 %      | 19.0 to 21.8 %                       | 2.8 %                              |
 
 The estimates at 20 % are less accurate because the relation used is a first-order one.
 
@@ -139,13 +139,13 @@ python run_analysis.py                  # reports/visualizations/, results/, bac
 python -m unittest discover -s tests    # 24 checks
 ```
 
-| Option | Default | Meaning |
-|---|---|---|
-| `--log` | `backend/data.csv` | sensor log with the columns `sensor_id, value, timestamp, sensor_type, location` |
-| `--seed` | 1 | seed of the simulated records |
-| `--baseline` | 60 | healthy records used to set the limits |
-| `--healthy` | 200 | further healthy records for the false-alarm rate |
-| `--damaged` | 40 | records per damage case |
+| Option       | Default            | Meaning                                                                          |
+| ------------ | ------------------ | -------------------------------------------------------------------------------- |
+| `--log`      | `backend/data.csv` | sensor log with the columns `sensor_id, value, timestamp, sensor_type, location` |
+| `--seed`     | 1                  | seed of the simulated records                                                    |
+| `--baseline` | 60                 | healthy records used to set the limits                                           |
+| `--healthy`  | 200                | further healthy records for the false-alarm rate                                 |
+| `--damaged`  | 40                 | records per damage case                                                          |
 
 ## Layout
 
